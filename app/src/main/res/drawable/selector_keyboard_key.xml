@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false" android:drawable="@drawable/az_btn_bg">
+        <!--<shape android:shape="rectangle">-->
+            <!--<size android:height="46dp" android:width="46dp" />-->
+            <!--<corners android:radius="12dip"></corners>-->
+            <!--<gradient android:startColor="#4B5869" android:endColor="#2F3740 "-->
+                <!--android:angle="270"-->
+                <!--/>-->
+        <!--</shape>-->
+    </item>
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+
+            <corners android:radius="5dip"></corners>
+            <gradient android:angle="270" android:startColor="#616F82" android:endColor="#616F82" />
+
+        </shape>
+    </item>
+</selector>

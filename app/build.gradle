@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply from: 'tinker-support.gradle'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.renyu.keyboarddemo"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+
+
+    signingConfigs {
+        sign {
+            //TODO 发布版必须将项目内的keystore文件删除并将值改为外部引用值
+            /**
+             *  storeFile file('引用外部资源文件')
+             *  storePassword '读取外部文件值'
+             *  keyAlias '读取外部文件值'
+             *  keyPassword '读取外部文件值'
+             * */
+            storeFile file("key.jks")
+            storePassword "123456"
+            keyAlias "key0"
+            keyPassword "123456"
+            v2SigningEnabled false
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "Boolean", "DebugLog", "true"
+            signingConfig signingConfigs.sign
+        }
+
+        release {
+            signingConfig signingConfigs.sign
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '26.0.2'
+            }
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.blankj:utilcode:1.12.6'
+    implementation 'com.orhanobut:logger:2.1.1'
+
+    compile "com.android.support:multidex:1.0.1" // 多dex配置
+    //注释掉原有bugly的仓库
+    //compile 'com.tencent.bugly:crashreport:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.3.4
+    compile 'com.tencent.bugly:crashreport_upgrade:1.3.4'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    compile 'com.github.razerdp:BasePopup:1.9.3'
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+}
+
+
+

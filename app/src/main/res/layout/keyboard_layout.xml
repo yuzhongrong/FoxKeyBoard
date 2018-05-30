@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+  >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp45"
+        android:background="@color/color_title_bg"
+        android:layout_alignParentBottom="true"
+        >
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/dp45"
+            android:layout_height="@dimen/dp60"
+            android:src="@mipmap/logo_idcm"
+            android:padding="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp125"
+
+
+            />
+
+        <TextView
+            android:id="@+id/txt_input"
+            android:layout_toRightOf="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/securityinput"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            android:layout_centerInParent="true"
+            />
+
+
+        <TextView
+            android:id="@+id/done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_done"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp23"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_separation"
+        android:layout_below="@+id/title"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2A3038"
+        android:layout_below="@+id/view"
+        >
+
+        <com.renyu.keyboarddemo.CustomKeyBoardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/view_keyboard"
+            android:background="#2A3038"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:keyBackground="@drawable/selector_keyboard_key"
+            android:keyPreviewLayout="@layout/view_keyboard_preview"
+            android:keyPreviewOffset="@dimen/dp40"
+            android:keyPreviewHeight="@dimen/dp90"
+            android:keyTextColor="@android:color/white"
+            android:keyTextSize="16sp"
+            android:labelTextSize="18sp"
+            android:shadowColor="#FFFFFF"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp"
+            android:visibility="gone"
+
+            >
+
+        </com.renyu.keyboarddemo.CustomKeyBoardView>
+    </RelativeLayout>
+</RelativeLayout>

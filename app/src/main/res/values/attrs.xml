@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="KeyBoard">
+        <attr name="keyboardgroup" format="integer|reference" />
+        <!--<attr name="keyboardview" format="integer|reference" />-->
+        <attr name="type" format="integer|reference" />
+    </declare-styleable>
+</resources>

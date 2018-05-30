@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KeyBoardDemo</string>
+    <string name="securityinput">安全输入</string>
+    <string name="str_done">完成</string>
+</resources>
