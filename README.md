@@ -26,8 +26,6 @@
 
 ```
 
-- 联系方式 有兴趣  加入下面知识星球
-![image](http://bmob-cdn-12859.b0.upaiyun.com/2018/05/28/b4f828f140ad818f80af345344dee5e1.png)
 
 
 
